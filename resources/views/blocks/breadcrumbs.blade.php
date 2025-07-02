@@ -18,7 +18,7 @@
             <li>
                 <a href="{{ url('/') }}" class="text-blue-600 hover:underline flex items-center">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m5 0a2 2 0 002-2V7a2 2 0 00-.586-1.414l-7-7a2 2 0 00-2.828 0l-7 7A2 2 0 003 7v11a2 2 0 002 2h3"/></svg>
-                    Home
+                    @lang("messages.home")
                 </a>
             </li>
             @foreach($breadcrumbs as $index => $breadcrumb)
