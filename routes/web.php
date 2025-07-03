@@ -6,8 +6,16 @@ Route::get('/', function () {
     return view('layouts.app');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 Route::get('/libraries', function () {
-    return view('layouts.libraries');
+    return view('libraries');
 })->name('libraries');
 
 Route::get('/auth', function () {
