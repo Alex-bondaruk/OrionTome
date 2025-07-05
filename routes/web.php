@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibraryController;
 
 Route::get('/', function () {
     return view('layouts.app');
@@ -14,9 +15,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/libraries', function () {
-    return view('libraries');
-})->name('libraries');
+Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
 
 Route::get('/auth', function () {
     return view('layouts.auth');
