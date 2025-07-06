@@ -29,7 +29,7 @@
                                 <span class="text-gray-400 text-4xl">📚</span>
                             </div>
                             <h3 class="text-lg font-semibold mb-2">
-                                <a href="{{ route('post.show', $post->id) }}" class="text-gray-800 hover:text-gray-900">
+                                <a href="{{ route('post.show', $post) }}" class="text-gray-800 hover:text-gray-900">
                                     {{ $post->title }}
                                 </a>
                             </h3>

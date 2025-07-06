@@ -19,7 +19,7 @@ Route::get('/contact', function () {
 
 Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
 
-Route::get('/posts/{post_id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/auth', function () {
     return view('layouts.auth');
