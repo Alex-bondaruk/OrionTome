@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 
 Route::get('/', function () {
     return view('layouts.app');
@@ -16,6 +18,8 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
+
+Route::get('/posts/{post_id}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/auth', function () {
     return view('layouts.auth');

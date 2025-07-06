@@ -9,7 +9,7 @@
                 <ul class="space-y-2">
                      @foreach($categories as $category)
                         <li>
-                            <a href="/?category_id={{ $category->id }}"
+                            <a href="libraries/?category_id={{ $category->id }}"
                             class="text-gray-600 hover:text-gray-800">
                                 {{ $category->name }}
                             </a>
@@ -21,29 +21,27 @@
             <main class="md:col-span-2">
                 <h1 class="text-3xl font-bold mb-4">Welcome to OrionTome</h1>
                 <p class="mb-6">Your base of knowledge. Explore our growing library of resources across a variety of categories.</p>
-                <!-- Example Library Cards -->
+                <!-- Library Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-                        <div class="w-24 h-24 bg-gray-200 rounded mb-4 flex items-center justify-center overflow-hidden">
-                            <span class="text-gray-400 text-4xl">📚</span>
+                    @foreach ($posts as $post)
+                        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded mb-4 flex items-center justify-center overflow-hidden">
+                                <span class="text-gray-400 text-4xl">📚</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">
+                                <a href="{{ route('post.show', $post->id) }}" class="text-gray-800 hover:text-gray-900">
+                                    {{ $post->title }}
+                                </a>
+                            </h3>
+                            @if (!empty($post->content))
+                              @if(Str::length($post->content) > 50)
+                                <p class="text-gray-600 text-center">{{ Str::limit($post->content, 50, '...') }}</p>
+                              @else
+                                <p class="text-gray-600 text-center">{{ $post->content }}</p>
+                              @endif
+                            @endif
                         </div>
-                        <h3 class="text-lg font-semibold mb-2">Python Standard Library</h3>
-                        <p class="text-gray-600 text-center">Comprehensive collection of modules and tools for Python development, included with every Python installation.</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-                        <div class="w-24 h-24 bg-gray-200 rounded mb-4 flex items-center justify-center overflow-hidden">
-                            <span class="text-gray-400 text-4xl">💻</span>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">JavaScript ES6 Reference</h3>
-                        <p class="text-gray-600 text-center">A modern guide to ES6 features, syntax, and best practices for JavaScript developers.</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-                        <div class="w-24 h-24 bg-gray-200 rounded mb-4 flex items-center justify-center overflow-hidden">
-                            <span class="text-gray-400 text-4xl">🔬</span>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2">Physics Formulas</h3>
-                        <p class="text-gray-600 text-center">A handy reference of essential physics formulas for students and professionals alike.</p>
-                    </div>
+                    @endforeach
                 </div>
             </main>
         </div>
