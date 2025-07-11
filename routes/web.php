@@ -20,12 +20,3 @@ Route::get('/contact', function () {
 Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries');
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
-
-Route::get('/auth', function () {
-    return view('layouts.auth');
-})->name('auth');
-
-Route::get(('/user/{id}'), function () {
-    return view('layouts.user');
-})->name('user');
-
